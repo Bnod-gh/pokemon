@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-function PokemonFetcher({ getPokemon }) {
+function PokemonFetcher({ getPokemon ,pokemonsearch}) {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchPokemon,setSearchPokemon]=([])
   const [error,setError]=useState('')
   const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=20";
 
@@ -26,11 +27,13 @@ function PokemonFetcher({ getPokemon }) {
     }
   };
   
+  
 
   useEffect(() => {
     getPokemon_url();
     
   }, []);
+  
 
   if (loading){
     return<div>
